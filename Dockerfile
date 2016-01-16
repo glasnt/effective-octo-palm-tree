@@ -1,18 +1,17 @@
 FROM python:slim
 
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
 
-COPY . /usr/src/app
-RUN pip install octohatrack
+#RUN export DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get install -y python-pip python-dev && apt-get clean
 
 RUN pip install bottle
+RUN pip install octohatrack
 
-RUN groupadd web
-RUN useradd -d /usr/src/app -m bottle
+RUN groupadd -r apprunner
+RUN useradd -r -g apprunner -d / -s /usr/sbin/nologin -c "Docker image user" apprunner
+
+COPY . /usr/src/app
 
 
-# in case you'd prefer to use links, expose the port
-EXPOSE 8081
-ENTRYPOINT ["/usr/bin/python", "/usr/src/app/server.py"]
-USER bottle
+
+ENTRYPOINT ["python", "/usr/src/app/server.py"]
+
