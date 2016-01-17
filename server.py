@@ -47,5 +47,6 @@ def static(filename):
         return static_file(filename, root="./")
 
 
-if __name__ == '__main__':
-    bottle.run(app, host='0.0.0.0', port=8080, debug=True)
+#if __name__ == '__main__':
+bottle.run(app, host='0.0.0.0', port=os.environ.get('PORT', 8080))
+#, debug=True)
