@@ -7,5 +7,5 @@ COPY . /usr/src/app
 
 EXPOSE 8080
 
-ENTRYPOINT ["python", "/usr/src/app/server.py"]
+ENTRYPOINT ["/usr/local/bin/python", "/usr/src/app/server.py"]
 
