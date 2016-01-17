@@ -6,7 +6,7 @@ import os
 ipr_limit = 5
 
 app = bottle.Bottle()
-
+print("THIS IS A TEST")
 # Because Docker, apparently
 print(bottle.TEMPLATE_PATH)
 bottle.TEMPLATE_PATH.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "views")))

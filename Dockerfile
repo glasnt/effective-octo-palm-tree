@@ -1,9 +1,10 @@
 FROM python:slim
 
-RUN pip install bottle
-RUN pip install octohatrack
-
 COPY . /usr/src/app
+
+RUN pip install bottle
+RUN cd /usr/src/app/octohatrack && pip install .
+
 
 EXPOSE 8080
 
