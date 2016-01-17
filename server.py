@@ -3,7 +3,7 @@ import octohatrack
 import bottle
 import os
 
-ipr_limit = 5
+ipr_limit = 10
 
 app = bottle.Bottle()
 print("THIS IS A TEST")
