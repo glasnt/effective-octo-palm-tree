@@ -48,5 +48,5 @@ def static(filename):
 
 
 #if __name__ == '__main__':
-bottle.run(app, host='0.0.0.0', port=os.environ.get('PORT', 8080))
+bottle.run(app, host='0.0.0.0', port=os.environ.get('PORT', 8080), debug=True)
 #, debug=True)
